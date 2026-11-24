@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SpeedOps - Prototipo Wireframe</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand" aria-label="SpeedOps">
+      <span class="brand-mark">S</span>
+      <span>SpeedOps</span>
+    </div>
+
+    <nav class="nav" aria-label="Navegación principal">
+      <button class="nav-item active" data-view="overview">
+        <span class="nav-icon">▦</span><span>Resumen</span>
+      </button>
+      <button class="nav-item" data-view="queries">
+        <span class="nav-icon">⌘</span><span>Consultas SQL</span>
+        <span class="badge">8</span>
+      </button>
+      <button class="nav-item" data-view="cache">
+        <span class="nav-icon">◫</span><span>Gestor de caché</span>
+      </button>
+      <button class="nav-item" data-view="alerts">
+        <span class="nav-icon">◷</span><span>Alertas</span>
+        <span class="alert-dot"></span>
+      </button>
+      <button class="nav-item" data-view="reports">
+        <span class="nav-icon">▥</span><span>Reportes</span>
+      </button>
+      <button class="nav-item" data-view="integrations">
+        <span class="nav-icon">⌁</span><span>Integraciones</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button class="nav-item" data-view="settings">
+        <span class="nav-icon">⚙</span><span>Configuración</span>
+      </button>
+      <div class="profile">
+        <div class="avatar">AB</div>
+        <div><strong>Adiel Barboza</strong><small>Administrador</small></div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-button" aria-label="Abrir menú">☰</button>
+      <div class="breadcrumb">
+        <span>Producción</span><span class="chevron">›</span><strong id="pageTitle">Resumen</strong>
+      </div>
+      <div class="top-actions">
+        <button class="status-pill"><span class="status-dot"></span> Sistema operativo</button>
+        <button class="icon-button" title="Notificaciones">♢<span class="notice"></span></button>
+        <button class="icon-button" title="Ayuda">?</button>
+      </div>
+    </header>
+
+    <section class="content" id="view-overview">
+      <div class="page-heading">
+        <div>
+          <p class="eyebrow">Monitoreo en tiempo real</p>
+          <h1>Rendimiento de la aplicación</h1>
+        </div>
+        <div class="heading-actions">
+          <button class="select-button">Últimas 24 horas⌄</button>
+          <button class="primary-button" id="runAnalysis">Ejecutar análisis</button>
+        </div>
+      </div>
+
+      <div class="health-banner">
+        <div class="health-icon">✓</div>
+        <div>
+          <strong>Estado general saludable</strong>
+          <p>El 92% de las visitas cumple con los umbrales de Core Web Vitals.</p>
+        </div>
+        <button class="text-button" data-view-link="reports">Ver reporte completo →</button>
+      </div>
+
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <div class="metric-label"><span>LCP</span><span class="trend good">↓ 18%</span></div>
+          <div class="metric-value">1.8<span>s</span></div>
+          <p>Umbral recomendado: ≤ 2.5 s</p>
+          <div class="mini-bar"><i style="width:72%"></i></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-label"><span>INP</span><span class="trend good">↓ 12%</span></div>
+          <div class="metric-value">174<span>ms</span></div>
+          <p>Umbral recomendado: ≤ 200 ms</p>
+          <div class="mini-bar"><i style="width:68%"></i></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-label"><span>Consultas lentas</span><span class="trend warn">↑ 3</span></div>
+          <div class="metric-value">8</div>
+          <p>3 requieren revisión prioritaria</p>
+          <div class="mini-bar"><i class="orange" style="width:42%"></i></div>
+        </article>
+        <article class="metric-card">
+          <div class="metric-label"><span>Ahorro estimado</span><span class="trend good">↑ 9%</span></div>
+          <div class="metric-value">₡84K</div>
+          <p>Infraestructura mensual</p>
+          <div class="mini-bar"><i class="purple" style="width:58%"></i></div>
+        </article>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="panel performance-panel">
+          <div class="panel-header">
+            <div><h2>Tiempo de carga</h2><p>Promedio móvil por hora</p></div>
+            <div class="legend"><span><i class="legend-lcp"></i>LCP</span><span><i class="legend-inp"></i>INP</span></div>
+          </div>
+          <div class="chart" aria-label="Gráfico de tiempo de carga">
+            <div class="y-labels"><span>3 s</span><span>2 s</span><span>1 s</span><span>0</span></div>
+            <div class="plot">
+              <div class="grid-line g1"></div><div class="grid-line g2"></div><div class="grid-line g3"></div>
+              <svg viewBox="0 0 700 210" preserveAspectRatio="none" role="img">
+                <defs>
+                  <linearGradient id="fillArea" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#5c5ce2" stop-opacity=".18"/>
+                    <stop offset="1" stop-color="#5c5ce2" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <path class="area" d="M0,150 C70,140 90,120 140,132 C195,145 210,96 260,108 C310,120 330,78 380,92 C430,106 450,68 510,82 C560,96 610,58 700,72 L700,210 L0,210 Z"/>
+                <path class="line purple-line" d="M0,150 C70,140 90,120 140,132 C195,145 210,96 260,108 C310,120 330,78 380,92 C430,106 450,68 510,82 C560,96 610,58 700,72"/>
+                <path class="line teal-line" d="M0,178 C70,168 90,174 140,160 C195,148 210,166 260,154 C310,142 330,152 380,138 C430,126 450,146 510,130 C560,118 610,126 700,112"/>
+              </svg>
+              <div class="x-labels"><span>00:00</span><span>04:00</span><span>08:00</span><span>12:00</span><span>16:00</span><span>20:00</span><span>24:00</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel recommendations-panel">
+          <div class="panel-header">
+            <div><h2>Recomendaciones</h2><p>Acciones pendientes</p></div>
+            <button class="text-button" data-view-link="queries">Ver todas</button>
+          </div>
+          <div class="recommendation-list">
+            <button class="recommendation-item" data-recommendation="1">
+              <div class="recommendation-icon sql">SQL</div>
+              <div class="recommendation-copy"><strong>Índice faltante</strong><span>orders.customer_id</span></div>
+              <div class="impact"><strong>-420 ms</strong><span>impacto</span></div>
+            </button>
+            <button class="recommendation-item" data-recommendation="2">
+              <div class="recommendation-icon cache">C</div>
+              <div class="recommendation-copy"><strong>Configurar caché</strong><span>/api/products</span></div>
+              <div class="impact"><strong>-31%</strong><span>carga</span></div>
+            </button>
+            <button class="recommendation-item" data-recommendation="3">
+              <div class="recommendation-icon query">SQL</div>
+              <div class="recommendation-copy"><strong>Optimizar consulta</strong><span>SELECT usuarios</span></div>
+              <div class="impact"><strong>-280 ms</strong><span>impacto</span></div>
+            </button>
+          </div>
+        </article>
+      </div>
+
+      <article class="panel traffic-panel">
+        <div class="panel-header">
+          <div><h2>Actividad reciente</h2><p>Eventos detectados por el sistema</p></div>
+          <button class="text-button" data-view-link="alerts">Ver todas las alertas</button>
+        </div>
+        <div class="activity-row">
+          <span class="activity-icon warning">!</span>
+          <div><strong>Pico de latencia detectado</strong><p>API /checkout · 14:32</p></div>
+          <span class="event-state">Revisado</span>
+        </div>
+        <div class="activity-row">
+          <span class="activity-icon success">✓</span>
+          <div><strong>Optimización aplicada</strong><p>Índice agregado a customers.email · 12:18</p></div>
+          <span class="event-state success-state">Completado</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="content hidden" id="view-queries">
+      <div class="page-heading">
+        <div><p class="eyebrow">Análisis SQL</p><h1>Consultas lentas</h1></div>
+        <button class="primary-button" id="scanQueries">Escanear ahora</button>
+      </div>
+      <div class="summary-strip">
+        <div><span>Consultas analizadas</span><strong>1,248</strong></div>
+        <div><span>Tiempo promedio</span><strong>86 ms</strong></div>
+        <div><span>Consultas lentas</span><strong class="orange-text">8</strong></div>
+      </div>
+      <article class="panel table-panel">
+        <div class="table-toolbar">
+          <div class="tabs"><button class="tab active">Todas <span>8</span></button><button class="tab">Críticas <span>3</span></button><button class="tab">Pendientes <span>5</span></button></div>
+          <button class="filter-button">Filtrar ⌄</button>
+        </div>
+        <table>
+          <thead><tr><th>Consulta</th><th>Endpoint</th><th>Tiempo medio</th><th>Impacto</th><th>Estado</th><th></th></tr></thead>
+          <tbody>
+            <tr><td><code>SELECT * FROM orders...</code></td><td>/api/orders</td><td><strong>680 ms</strong></td><td><span class="impact-chip high">Alto</span></td><td><span class="pending-dot">Pendiente</span></td><td><button class="row-action" data-recommendation="1">Revisar</button></td></tr>
+            <tr><td><code>SELECT u.*, r.name...</code></td><td>/api/users</td><td><strong>512 ms</strong></td><td><span class="impact-chip medium">Medio</span></td><td><span class="pending-dot">Pendiente</span></td><td><button class="row-action" data-recommendation="3">Revisar</button></td></tr>
+            <tr><td><code>SELECT p.*, i.stock...</code></td><td>/api/products</td><td><strong>390 ms</strong></td><td><span class="impact-chip medium">Medio</span></td><td><span class="approved-dot">Aprobada</span></td><td><button class="row-action" data-recommendation="2">Ver</button></td></tr>
+            <tr><td><code>UPDATE inventory SET...</code></td><td>/api/inventory</td><td><strong>285 ms</strong></td><td><span class="impact-chip low">Bajo</span></td><td><span class="approved-dot">Aprobada</span></td><td><button class="row-action">Ver</button></td></tr>
+          </tbody>
+        </table>
+      </article>
+    </section>
+
+    <section class="content hidden" id="view-cache">
+      <div class="page-heading"><div><p class="eyebrow">Optimización</p><h1>Gestor de caché</h1></div><button class="primary-button">Crear regla</button></div>
+      <div class="cache-grid">
+        <article class="panel cache-card"><div class="cache-head"><span class="cache-status">Activa</span><strong>/api/products</strong></div><p>Memoria · 300 segundos</p><div class="cache-stat"><span>Reducción de carga</span><strong>31%</strong></div></article>
+        <article class="panel cache-card"><div class="cache-head"><span class="cache-status draft">Propuesta</span><strong>/api/categories</strong></div><p>Memoria · 600 segundos</p><div class="cache-stat"><span>Ahorro estimado</span><strong>18%</strong></div><button class="outline-button">Revisar propuesta</button></article>
+      </div>
+    </section>
+
+    <section class="content hidden" id="view-alerts">
+      <div class="page-heading"><div><p class="eyebrow">Eventos</p><h1>Centro de alertas</h1></div><button class="outline-button">Configurar canales</button></div>
+      <article class="panel"><div class="activity-row"><span class="activity-icon warning">!</span><div><strong>Pico de latencia en /checkout</strong><p>LCP superó 3.2 s durante 6 minutos</p></div><button class="row-action">Revisar</button></div><div class="activity-row"><span class="activity-icon warning">!</span><div><strong>Consulta SQL crítica</strong><p>orders.customer_id necesita un índice</p></div><button class="row-action">Revisar</button></div></article>
+    </section>
+
+    <section class="content hidden" id="view-reports">
+      <div class="page-heading"><div><p class="eyebrow">Análisis ejecutivo</p><h1>Reportes de ROI</h1></div><button class="primary-button">Exportar PDF</button></div>
+      <div class="metrics-grid"><article class="metric-card"><div class="metric-label"><span>Ahorro mensual</span></div><div class="metric-value">₡84K</div><p>proyectado</p></article><article class="metric-card"><div class="metric-label"><span>Latencia reducida</span></div><div class="metric-value">-18%</div><p>últimos 30 días</p></article><article class="metric-card"><div class="metric-label"><span>NPS</span></div><div class="metric-value">68</div><p>objetivo: 70</p></article></div>
+    </section>
+
+    <section class="content hidden" id="view-integrations">
+      <div class="page-heading"><div><p class="eyebrow">Conectores</p><h1>Integraciones</h1></div><button class="primary-button">Agregar integración</button></div>
+      <div class="integration-grid"><article class="panel integration-card"><strong>Slack</strong><p>Alertas técnicas</p><span class="cache-status">Conectado</span></article><article class="panel integration-card"><strong>Microsoft Teams</strong><p>Alertas de operación</p><button class="outline-button">Conectar</button></article><article class="panel integration-card"><strong>PostgreSQL</strong><p>Motor de análisis SQL</p><span class="cache-status">Conectado</span></article></div>
+    </section>
+
+    <section class="content hidden" id="view-settings">
+      <div class="page-heading"><div><p class="eyebrow">Cuenta</p><h1>Configuración</h1></div></div>
+      <article class="panel settings-panel"><h2>Umbrales de rendimiento</h2><label>LCP máximo <input type="text" value="2.5 s"></label><label>INP máximo <input type="text" value="200 ms"></label><button class="primary-button">Guardar cambios</button></article>
+    </section>
+  </main>
+
+  <div class="modal-backdrop hidden" id="recommendationModal">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="closeModal" aria-label="Cerrar">×</button>
+      <p class="eyebrow">Recomendación segura</p>
+      <h2 id="modalTitle">Agregar índice a orders.customer_id</h2>
+      <p class="modal-description">Esta optimización puede reducir el tiempo medio de respuesta en aproximadamente 420 ms.</p>
+      <div class="code-block"><span>CREATE INDEX CONCURRENTLY</span><br><strong>idx_orders_customer_id</strong><br><span>ON orders (customer_id);</span></div>
+      <div class="impact-box"><span>Impacto estimado</span><strong>-420 ms</strong></div>
+      <label class="checkbox"><input type="checkbox" checked> Crear respaldo antes de aplicar</label>
+      <div class="modal-actions"><button class="outline-button" id="dismissModal">Rechazar</button><button class="primary-button" id="approveModal">Aprobar con 1 clic</button></div>
+    </section>
+  </div>
+
+  <div class="toast hidden" id="toast">Recomendación aprobada</div>
+  <script src="app.js"></script>
+</body>
+</html>
